@@ -63,14 +63,20 @@
                                 <div class="form-group">
                                    <label class="col-sm-2 control-label" for="category">報告区分</label>
                                    <div class="col-sm-10">
-                                     <input id="category" name="category" type="text" class="form-control">
+                                     <input id="category" name="category" type="text" class="form-control" autocomplete="on" list="worktype">
+                                     <datalist id="worktype">
+                                       <option value="検査" />
+                                       <option value="修理" />
+                                       <option value="保守" />
+                                       <option value="部品交換" />
+                                     </datalist>
                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                    <label class="col-sm-3 control-label" for="title">タイトル</label>
-                                   <div class="col-sm-9"><input id="title" name="title" type="text"  class="form-control"></div>
+                                   <div class="col-sm-9"><input id="title" name="title" autofocus type="text"  class="form-control"></div>
                                 </div>
                             </div>
                         </div>
