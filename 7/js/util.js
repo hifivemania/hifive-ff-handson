@@ -15,13 +15,6 @@
     },
     escapeHTML: function(html) {
       return $('<div>').text(html).html();
-    },
-    createDateFromTimeString(timeString){
-      var now = new Date();
-      var time = timeString.split(":");
-      now.setHours(time[0]);
-      now.setMinutes(time[1]);
-      return now;
     }
   });
   

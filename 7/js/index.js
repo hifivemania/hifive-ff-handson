@@ -12,39 +12,14 @@
 		},
 
 		'#startTime, #endTime focusout': function (context, $el) {
-			var start = this.$find("#startTime").val(); // 開始時刻の取得
-			var end = this.$find("#endTime").val();     // 終了時刻の取得
-			start = handson.utils.createDateFromTimeString(start);
-			end = handson.utils.createDateFromTimeString(end);
-			var $error = this.$find('.report-content').find('.alert-danger');  // エラーメッセージを出す場所
-			var $warning = this.$find('.report-content').find('.alert-warning');  // 警告メッセージを出す場所  
-			if (end <= start) {
-				// エラー状態
-				if (this.$find('p[data-error-type="duration"]').length == 0) {
-					var $p = $('<p data-error-type="duration">');
-					$p.append('<strong>勤務の開始時刻より終了時刻が後になるように入力してください</strong>');
-					$error.append($p);
-				}
-			} else {
-				// 正常状態
-				// 入力した項目のメッセージを消す
-				$error.find('p[data-error-type="duration"]').remove();
-
-				if (end - start > 12) {
-					var $p = $('<p data-warning-type="too-long-work">');
-					$p.append('<strong>勤務時間が長くなっています</strong>');
-					$warning.append($p);
-				} else {
-					$warning.find('[data-warning-type="too-long-work"]').remove();
-				}
-			}
 		},
+
 		'input, textarea focusout': function (context, $el) {
 			// 変数の定義
 			var value = $el.val();
 			var name = $el.attr('name');
 			var error_class = 'has-error';
-			var $msg = this.$find('.report-content').find('.alert-danger');
+			var $msg = this.$find('.report-content').find('.msg');
 			var $formGroup = $el.parents('.form-group');
 
 			// 除外条件の設定
